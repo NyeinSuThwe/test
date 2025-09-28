@@ -3,119 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Melody's Cute World - Home</title>
+    <title>Blog Posts - My Melody's World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
             min-height: 100vh;
         }
-        
+
         .container {
-            max-width: 800px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        
+
         header {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 2rem 0;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        h1 {
-            color: #ff69b4;
-            font-size: 2.5em;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         nav {
-            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            margin-top: 1rem;
         }
-        
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
         nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        main {
+            flex: 1;
+            padding: 3rem 4rem;
+        }
+
+        .blog-post {
+            margin-bottom: 4rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff69b4;
+        }
+
+        .blog-post h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ff69b4;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ff69b4;
+            padding-bottom: 0.5rem;
+        }
+
+        .post-meta {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .blog-image {
+            width: 100%;
+            max-width: 700px;
+            height: 300px;
+            background: linear-gradient(45deg, #ffe4e1, #f0f8ff);
+            border: 3px solid #ff69b4;
+            border-radius: 15px;
+            display: block;
+            margin: 2rem auto;
+            box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+            object-fit: cover;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .read-more {
+            display: inline-block;
             background: #ff69b4;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
+            padding: 0.8rem 1.5rem;
             border-radius: 25px;
-            display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(255,105,180,0.3);
+            font-weight: 600;
+            margin-top: 1rem;
         }
-        
-        nav a:hover {
+
+        .read-more:hover {
             background: #ff1493;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,105,180,0.5);
         }
-        
-        .content-box {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+
+        .blog-sidebar {
+            background: linear-gradient(45deg, #f0f8ff, #ffe4e1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #ffb6c1;
+        }
+
+        .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            color: #ff69b4;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             text-align: center;
         }
-        
-        .melody-image {
-            width: 300px;
-            height: 300px;
-            background: #ffb6c1;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            border: 5px solid #ff69b4;
-            box-shadow: 0 8px 25px rgba(255,105,180,0.3);
+
+        .recent-posts {
+            list-style: none;
         }
-        
-        .paragraph {
-            font-size: 1.2em;
-            line-height: 1.8;
+
+        .recent-posts li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ffb6c1;
+        }
+
+        .recent-posts li:last-child {
+            border-bottom: none;
+        }
+
+        .recent-posts a {
             color: #666;
-            text-align: justify;
-            max-width: 600px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .recent-posts a:hover {
+            color: #ff69b4;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 800px;
             margin: 0 auto;
         }
-        
-        .hearts {
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
             color: #ff69b4;
-            font-size: 1.5em;
-            margin: 0 10px;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff69b4;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #555;
+            color: #999;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><span class="hearts">💕</span> Welcome to My Melody's World <span class="hearts">💕</span></h1>
+            <h1>My Melody's Magical World</h1>
             <nav>
-                <a href="#home">Home</a>
-                <a href="about.html">About My Melody</a>
-                <a href="adventures.html">Adventures</a>
-                <a href="friends.html">Friends</a>
+                <ul>
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html" class="active">Blog Posts</a></li>
+                </ul>
             </nav>
         </header>
-        
-        <div class="content-box">
-            <div class="melody-image">
-                🐰💖
+
+        <main>
+            <article class="blog-post">
+                <h2>The Magic of My Melody's Forest Adventures</h2>
+                <div class="post-meta">Published on March 15, 2025 | By My Melody Fan</div>
+                
+                <img src="https://via.placeholder.com/700x300/FFE4E1/FF69B4?text=My+Melody+Forest+Adventure" 
+                     alt="My Melody exploring a magical forest path surrounded by colorful flowers and woodland creatures in her enchanted home of Mariland" 
+                     class="blog-image">g the forest
+                </div>
+
+                <p>
+                    Deep within the enchanted Forest of Mariland, My Melody embarks on countless magical adventures that teach us valuable lessons about friendship, courage, and kindness. Each journey through the mystical woodlands brings new discoveries and heartwarming encounters with fellow forest creatures. From helping lost baby birds find their way home to organizing community gatherings under the starlit sky, My Melody's adventures showcase the importance of compassion and community spirit. Her gentle approach to problem-solving and her unwavering optimism inspire everyone around her to see the beauty in simple acts of kindness.
+                </p>
+
+                <p>
+                    The forest serves as more than just a backdrop for My Melody's stories; it represents a sanctuary where friendship flourishes and life lessons are learned through natural experiences. Whether she's discovering hidden meadows filled with wildflowers, sharing picnics with woodland friends, or learning new recipes from the wise old owl, each adventure adds depth to her character and reinforces the timeless values that make her so beloved by fans worldwide.
+                </p>
+
+                <a href="#" class="read-more">Read Full Adventure</a>
+            </article>
+
+            <article class="blog-post">
+                <h2>My Melody's Friendship Circle: Bonds That Last Forever</h2>
+                <div class="post-meta">Published on March 10, 2025 | By My Melody Fan</div>
+                
+                <div class="image-placeholder">
+                    [My Melody with Friends Image]<br>
+                    700x300px placeholder for My Melody surrounded by her friends
+                </div>
+
+                <p>
+                    Friendship is at the very heart of My Melody's world, and her relationships with characters like Flat the mouse, Piano the sheep, and all her woodland companions demonstrate the power of genuine connections. These friendships aren't just casual acquaintanceships; they represent deep bonds built on trust, mutual support, and shared experiences. My Melody's ability to bring out the best in her friends while remaining humble and caring showcases the qualities that make lasting friendships possible. Through tea parties, collaborative adventures, and moments of both joy and challenge, these relationships teach us about loyalty, empathy, and the importance of being there for one another.
+                </p>
+
+                <a href="#" class="read-more">Read More About Friendship</a>
+            </article>
+
+            <div class="blog-sidebar">
+                <h3 class="sidebar-title">Recent Posts</h3>
+                <ul class="recent-posts">
+                    <li><a href="#">My Melody's Baking Tips and Favorite Recipes</a></li>
+                    <li><a href="#">The History and Evolution of My Melody's Design</a></li>
+                    <li><a href="#">Seasonal Celebrations in Mariland</a></li>
+                    <li><a href="#">My Melody's Life Lessons for Children</a></li>
+                    <li><a href="#">The Cultural Impact of Sanrio Characters</a></li>
+                </ul>
             </div>
-            <div class="paragraph">
-                Welcome to the magical world of My Melody, the sweetest little bunny from Mariland! This adorable white rabbit with her signature pink hood has been spreading joy and happiness since 1975. My Melody loves to bake cookies, especially almond pound cake, and she's always ready to help her friends with a warm heart and gentle smile. Her innocent charm and kind nature make her one of the most beloved characters in the Sanrio family. Join us as we explore her wonderful world filled with friendship, adventure, and lots of kawaii moments that will make your heart flutter with happiness!
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sources & References</h3>
+                    <a href="https://www.sanrio.com" target="_blank">Official Sanrio Website</a>
+                    <a href="https://en.wikipedia.org/wiki/My_Melody" target="_blank">My Melody - Wikipedia</a>
+                    <a href="https://www.sanrio.com
