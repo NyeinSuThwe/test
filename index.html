@@ -1,62 +1,121 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Blog</title>
-  <meta name="description" content="A simple static blog template">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <meta property="og:title" content="My Blog">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Melody's Cute World - Home</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            margin: 20px 0;
+        }
+        
+        nav a {
+            background: #ff69b4;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255,105,180,0.3);
+        }
+        
+        nav a:hover {
+            background: #ff1493;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,105,180,0.5);
+        }
+        
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .melody-image {
+            width: 300px;
+            height: 300px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            border: 5px solid #ff69b4;
+            box-shadow: 0 8px 25px rgba(255,105,180,0.3);
+        }
+        
+        .paragraph {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+            text-align: justify;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .hearts {
+            color: #ff69b4;
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">My Blog</a>
-
-      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-      </button>
-
-      <nav class="nav" id="site-nav">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="archive.html">Archive</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="post.html">Sample Post</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h1>Welcome to My Blog</h1>
-      <p>Short tagline — thoughts, tutorials, and projects.</p>
-      <p><a class="btn" href="blog.html">Read the Blog</a></p>
-    </section>
-
-    <section class="latest-posts">
-      <h2>Latest Posts</h2>
-      <article class="post-preview">
-        <h3><a href="post.html">Sample Blog Post Title</a></h3>
-        <p class="meta">August 1, 2025 • 4 min read</p>
-        <p>A short excerpt from the post to get readers interested. Click through to read more.</p>
-        <p><a href="post.html" class="read-more">Read more →</a></p>
-      </article>
-
-      <!-- Repeat .post-preview for more posts -->
-    </section>
-  </main>
-
-  <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> My Blog — Built for GitHub Pages</p>
+        <header>
+            <h1><span class="hearts">💕</span> Welcome to My Melody's World <span class="hearts">💕</span></h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="about.html">About My Melody</a>
+                <a href="adventures.html">Adventures</a>
+                <a href="friends.html">Friends</a>
+            </nav>
+        </header>
+        
+        <div class="content-box">
+            <div class="melody-image">
+                🐰💖
+            </div>
+            <div class="paragraph">
+                Welcome to the magical world of My Melody, the sweetest little bunny from Mariland! This adorable white rabbit with her signature pink hood has been spreading joy and happiness since 1975. My Melody loves to bake cookies, especially almond pound cake, and she's always ready to help her friends with a warm heart and gentle smile. Her innocent charm and kind nature make her one of the most beloved characters in the Sanrio family. Join us as we explore her wonderful world filled with friendship, adventure, and lots of kawaii moments that will make your heart flutter with happiness!
+            </div>
+        </div>
     </div>
-  </footer>
 </body>
 </html>
