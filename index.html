@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts - My Melody's World</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>My Melody's World - Homepage</title>
     <style>
         * {
             margin: 0;
@@ -13,10 +12,10 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 16px;
-            line-height: 1.7;
-            color: #333;
+            line-height: 1.6;
+            color: #444;
             background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
             min-height: 100vh;
         }
@@ -40,10 +39,9 @@
         }
 
         header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 300;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -67,17 +65,14 @@
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            font-weight: 600;
+            font-weight: 400;
             font-size: 1rem;
+            cursor: pointer;
         }
 
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        nav a.active {
+        nav a:hover, nav a.active {
             background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
         }
 
         main {
@@ -85,109 +80,111 @@
             padding: 3rem 4rem;
         }
 
-        .blog-post {
-            margin-bottom: 4rem;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #ff69b4;
+        .page {
+            display: none;
         }
 
-        .blog-post h2 {
-            font-family: 'Playfair Display', serif;
+        .page.active {
+            display: block;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
             color: #ff69b4;
             font-size: 2rem;
-            font-weight: 700;
             margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 300;
             border-bottom: 2px solid #ff69b4;
             padding-bottom: 0.5rem;
+        }
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            background: linear-gradient(45deg, #ffe4e1, #ffc0cb);
+            border: 2px solid #ff69b4;
+            border-radius: 15px;
+            display: block;
+            margin: 1.5rem auto;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 1rem;
+            padding: 0 2rem;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .character-details {
+            background: linear-gradient(45deg, #f0f8ff, #ffe4e1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 600px;
+            border-left: 4px solid #ff69b4;
+        }
+
+        .character-details h3 {
+            color: #ff69b4;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid #ffb6c1;
+            font-size: 0.9rem;
+        }
+
+        .detail-item strong {
+            color: #ff69b4;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .blog-post {
+            margin-bottom: 2.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #ff69b4;
+        }
+
+        .blog-post h3 {
+            color: #ff69b4;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
         }
 
         .post-meta {
             color: #666;
             font-style: italic;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-
-        .blog-image {
-            width: 100%;
-            max-width: 700px;
-            height: 300px;
-            background: linear-gradient(45deg, #ffe4e1, #f0f8ff);
-            border: 3px solid #ff69b4;
-            border-radius: 15px;
-            display: block;
-            margin: 2rem auto;
-            box-shadow: 0 5px 15px rgba(255,105,180,0.3);
-            object-fit: cover;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: justify;
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-weight: 300;
-        }
-
-        .read-more {
-            display: inline-block;
-            background: #ff69b4;
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        .read-more:hover {
-            background: #ff1493;
-            transform: translateY(-2px);
-        }
-
-        .blog-sidebar {
-            background: linear-gradient(45deg, #f0f8ff, #ffe4e1);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 2px solid #ffb6c1;
-        }
-
-        .sidebar-title {
-            font-family: 'Playfair Display', serif;
-            color: #ff69b4;
-            font-size: 1.5rem;
-            font-weight: 700;
             margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .recent-posts {
-            list-style: none;
-        }
-
-        .recent-posts li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #ffb6c1;
-        }
-
-        .recent-posts li:last-child {
-            border-bottom: none;
-        }
-
-        .recent-posts a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .recent-posts a:hover {
-            color: #ff69b4;
+            font-size: 0.85rem;
         }
 
         footer {
@@ -200,25 +197,25 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 800px;
+            gap: 2rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
             color: #ff69b4;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
 
         .footer-section a {
             color: #ccc;
             text-decoration: none;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             transition: color 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .footer-section a:hover {
@@ -227,11 +224,11 @@
 
         .copyright {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid #555;
             color: #999;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -241,59 +238,116 @@
             <h1>My Melody's Magical World</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Homepage</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html" class="active">Blog Posts</a></li>
+                    <li><a href="#" onclick="showPage('home')" id="home-btn" class="active">Homepage</a></li>
+                    <li><a href="#" onclick="showPage('about')" id="about-btn">About</a></li>
+                    <li><a href="#" onclick="showPage('blog')" id="blog-btn">Blog Posts</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <article class="blog-post">
-                <h2>The Magic of My Melody's Forest Adventures</h2>
-                <div class="post-meta">Published on March 15, 2025 | By My Melody Fan</div>
-                
-                <img src="https://via.placeholder.com/700x300/FFE4E1/FF69B4?text=My+Melody+Forest+Adventure" 
-                     alt="My Melody exploring a magical forest path surrounded by colorful flowers and woodland creatures in her enchanted home of Mariland" 
-                     class="blog-image">g the forest
-                </div>
+            <!-- HOME PAGE -->
+            <div id="home" class="page active">
+                <section>
+                    <h2>Welcome to My Melody's World</h2>
+                    
+                    <img src="placeholder.jpg" alt="My Melody sitting in a flower meadow with her signature pink hood, surrounded by colorful wildflowers and butterflies">
 
-                <p>
-                    Deep within the enchanted Forest of Mariland, My Melody embarks on countless magical adventures that teach us valuable lessons about friendship, courage, and kindness. Each journey through the mystical woodlands brings new discoveries and heartwarming encounters with fellow forest creatures. From helping lost baby birds find their way home to organizing community gatherings under the starlit sky, My Melody's adventures showcase the importance of compassion and community spirit. Her gentle approach to problem-solving and her unwavering optimism inspire everyone around her to see the beauty in simple acts of kindness.
-                </p>
+                    <p>
+                        Welcome to the enchanting world of My Melody, Sanrio's beloved white rabbit who has been spreading joy since 1975. With her signature pink hood crafted by her grandmother, My Melody represents kindness, friendship, and the simple pleasures of life in the magical Forest of Mariland.
+                    </p>
 
-                <p>
-                    The forest serves as more than just a backdrop for My Melody's stories; it represents a sanctuary where friendship flourishes and life lessons are learned through natural experiences. Whether she's discovering hidden meadows filled with wildflowers, sharing picnics with woodland friends, or learning new recipes from the wise old owl, each adventure adds depth to her character and reinforces the timeless values that make her so beloved by fans worldwide.
-                </p>
+                    <p>
+                        Join us as we explore her wonderful world filled with heartwarming adventures, delicious baking sessions, and meaningful friendships that teach us valuable lessons about compassion and community.
+                    </p>
+                </section>
+            </div>
 
-                <a href="#" class="read-more">Read Full Adventure</a>
-            </article>
+            <!-- ABOUT PAGE -->
+            <div id="about" class="page">
+                <section>
+                    <h2>About My Melody</h2>
+                    
+                    <img src="placeholder.jpg" alt="Close-up portrait of My Melody showing her gentle expression and iconic pink hood with detailed stitching">
 
-            <article class="blog-post">
-                <h2>My Melody's Friendship Circle: Bonds That Last Forever</h2>
-                <div class="post-meta">Published on March 10, 2025 | By My Melody Fan</div>
-                
-                <div class="image-placeholder">
-                    [My Melody with Friends Image]<br>
-                    700x300px placeholder for My Melody surrounded by her friends
-                </div>
+                    <p>
+                        My Melody is a charming white rabbit born in the Forest of Mariland on January 18th. She's known for her gentle personality, love of baking, and her treasured pink hood that never leaves her side. Her favorite treat is almond pound cake, which she loves to share with friends.
+                    </p>
 
-                <p>
-                    Friendship is at the very heart of My Melody's world, and her relationships with characters like Flat the mouse, Piano the sheep, and all her woodland companions demonstrate the power of genuine connections. These friendships aren't just casual acquaintanceships; they represent deep bonds built on trust, mutual support, and shared experiences. My Melody's ability to bring out the best in her friends while remaining humble and caring showcases the qualities that make lasting friendships possible. Through tea parties, collaborative adventures, and moments of both joy and challenge, these relationships teach us about loyalty, empathy, and the importance of being there for one another.
-                </p>
+                    <div class="character-details">
+                        <h3>Character Profile</h3>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <strong>Birthday:</strong>
+                                January 18th
+                            </div>
+                            <div class="detail-item">
+                                <strong>Birthplace:</strong>
+                                Forest of Mariland
+                            </div>
+                            <div class="detail-item">
+                                <strong>Favorite Food:</strong>
+                                Almond Pound Cake
+                            </div>
+                            <div class="detail-item">
+                                <strong>Hobbies:</strong>
+                                Baking & Reading
+                            </div>
+                            <div class="detail-item">
+                                <strong>Special Item:</strong>
+                                Pink Hood from Grandma
+                            </div>
+                            <div class="detail-item">
+                                <strong>Best Friend:</strong>
+                                Flat the Mouse
+                            </div>
+                        </div>
+                    </div>
 
-                <a href="#" class="read-more">Read More About Friendship</a>
-            </article>
+                    <p>
+                        What makes My Melody truly special is her caring nature and ability to bring out the best in everyone she meets. Her adventures teach us about friendship, courage, and finding magic in everyday moments.
+                    </p>
+                </section>
+            </div>
 
-            <div class="blog-sidebar">
-                <h3 class="sidebar-title">Recent Posts</h3>
-                <ul class="recent-posts">
-                    <li><a href="#">My Melody's Baking Tips and Favorite Recipes</a></li>
-                    <li><a href="#">The History and Evolution of My Melody's Design</a></li>
-                    <li><a href="#">Seasonal Celebrations in Mariland</a></li>
-                    <li><a href="#">My Melody's Life Lessons for Children</a></li>
-                    <li><a href="#">The Cultural Impact of Sanrio Characters</a></li>
-                </ul>
+            <!-- BLOG PAGE -->
+            <div id="blog" class="page">
+                <section>
+                    <h2>Latest Blog Posts</h2>
+
+                    <article class="blog-post">
+                        <h3>Adventures in Mariland Forest</h3>
+                        <div class="post-meta">Published on March 15, 2025</div>
+                        
+                        <img src="placeholder.jpg" alt="My Melody exploring a magical forest path with sun rays filtering through tall trees and colorful mushrooms along the way">
+
+                        <p>
+                            Discover the magical adventures My Melody experiences in her forest home. From helping lost woodland creatures to discovering hidden meadows, each journey teaches valuable lessons about kindness and friendship.
+                        </p>
+                    </article>
+
+                    <article class="blog-post">
+                        <h3>Baking with My Melody</h3>
+                        <div class="post-meta">Published on March 10, 2025</div>
+                        
+                        <img src="placeholder.jpg" alt="My Melody in a cozy kitchen wearing an apron, mixing ingredients in a bowl with her famous almond pound cake cooling on the windowsill">
+
+                        <p>
+                            Join My Melody in her kitchen as she shares her favorite recipes and baking tips. Learn how to make her signature almond pound cake and discover the joy of sharing homemade treats with friends.
+                        </p>
+                    </article>
+
+                    <article class="blog-post">
+                        <h3>Friendship Circle Stories</h3>
+                        <div class="post-meta">Published on March 5, 2025</div>
+                        
+                        <img src="placeholder.jpg" alt="My Melody having a tea party with her friends Flat the mouse, Piano the sheep, and other woodland creatures around a small table under a big oak tree">
+
+                        <p>
+                            Meet My Melody's wonderful friends and learn about the special bonds that make their friendship circle so strong. From tea parties to adventures, discover how friendship makes everything better.
+                        </p>
+                    </article>
+                </section>
             </div>
         </main>
 
@@ -303,4 +357,39 @@
                     <h3>Sources & References</h3>
                     <a href="https://www.sanrio.com" target="_blank">Official Sanrio Website</a>
                     <a href="https://en.wikipedia.org/wiki/My_Melody" target="_blank">My Melody - Wikipedia</a>
-                    <a href="https://www.sanrio.com
+                    <a href="https://www.sanrio.com/collections/my-melody" target="_blank">My Melody Character Page</a>
+                    <a href="https://mymelody.sanrio.com" target="_blank">My Melody Official Site</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Additional Resources</h3>
+                    <a href="https://www.sanriotown.com" target="_blank">Sanrio Town Community</a>
+                    <a href="https://hellokitty.com/my-melody" target="_blank">Hello Kitty & Friends</a>
+                    <a href="https://www.sanrio.co.jp" target="_blank">Sanrio Japan Official</a>
+                    <a href="https://kawaii.fandom.com/wiki/My_Melody" target="_blank">Kawaii Wiki - My Melody</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 My Melody Fan Blog. This is a fan-made website. My Melody is a trademark of Sanrio Co., Ltd.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navButtons = document.querySelectorAll('nav a');
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(pageId + '-btn').classList.add('active');
+        }
+    </script>
+</body>
+</html>
