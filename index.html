@@ -1,56 +1,62 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
 <head>
   <meta charset="utf-8">
-  <title>Navigation Bar Example</title>
-  <meta name="description" content="A sample website with a navigation bar.">
+  <title>My Blog</title>
+  <meta name="description" content="A simple static blog template">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  
-  <!-- Defines preview content that will be displayed when your site is linked on twitter, reddit, etc-->
-  <meta property="og:title" content="Navigation Bar Example">
-  <meta property="og:type" content="Article">
-  <meta property="og:url" content="glitch.com/edit">
-  <meta property="og:image" content="exampleImage.jpg">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Link to your favicon above. Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="/script.js" defer></script>
-
-  <meta name="theme-color" content="#fafafa">
+  <meta property="og:title" content="My Blog">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="navbar-container">
-        <ul class="main-menu">
-          <li><a href="#">*Ji</a></li>
-          <li class="dropdown">
-            <a href="#">mir <i class="arrow-down"></i></a>
-            <ul class="sub-menu">
-              <li><a href="#">Development History</a></li>
-              <li><a href="#">Talent Recruitment</a></li>
-              <li><a href="#">Product Introduction</a></li>
-            </ul>
-          </li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">My Blog</a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="post.html">Sample Post</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h1>Hello world!</h1>
+  <main class="container">
+    <section class="hero">
+      <h1>Welcome to My Blog</h1>
+      <p>Short tagline — thoughts, tutorials, and projects.</p>
+      <p><a class="btn" href="blog.html">Read the Blog</a></p>
+    </section>
+
+    <section class="latest-posts">
+      <h2>Latest Posts</h2>
+      <article class="post-preview">
+        <h3><a href="post.html">Sample Blog Post Title</a></h3>
+        <p class="meta">August 1, 2025 • 4 min read</p>
+        <p>A short excerpt from the post to get readers interested. Click through to read more.</p>
+        <p><a href="post.html" class="read-more">Read more →</a></p>
+      </article>
+
+      <!-- Repeat .post-preview for more posts -->
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Your Website</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> My Blog — Built for GitHub Pages</p>
+    </div>
   </footer>
 </body>
 </html>
